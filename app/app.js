@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; 
 console.log("App connection is a go!");
 
 let app = angular.module("faceBuck",["ngRoute"]);
@@ -12,7 +12,6 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) =>{
 				resolve();
 		}else{
 			console.log("No good! Make an account!");
-			alert("No good! Make an account!");
 				reject();
 		}
 	});
@@ -29,4 +28,15 @@ app.config(function($routeProvider) {
 		controller: "homeCtrl"
 	})
 	.otherwise("/");
+});
+//You need this to authrnticate your firebase. It won't run without it.
+app.run(($location, FBCreds) => {
+    let creds = FBCreds;
+    let authConfig = {
+        apiKey: creds.apiKey,
+        authDomain: creds.authDomain,
+        databaseURL: creds.databaseURL
+    };
+
+    firebase.initializeApp(authConfig);
 });
