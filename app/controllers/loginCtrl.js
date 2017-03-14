@@ -10,7 +10,20 @@ app.controller("loginCtrl", function($scope, $window, AuthFactory, $location){
 		password: ""
 	};
 
- 
+let logout = () => {
+			console.log("logout clicked");
+			AuthFactory.logoutUser()
+			.then(function(data){
+				console.log("logged out?", data);
+				$window.location.url = "#!/login";
+			}, function(error){
+				console.log("error occured on logout");
+			});
+		};
+
+	if(AuthFactory.isAuthenticated()){
+		logout();
+	} 
 	 	
 
 	$scope.register = () => {
