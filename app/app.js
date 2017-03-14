@@ -29,7 +29,7 @@ app.config(function($routeProvider) {
 	})
 	.otherwise("/");
 });
-
+//You need this to authrnticate your firebase. It won't run without it.
 app.run(($location, FBCreds) => {
     let creds = FBCreds;
     let authConfig = {
