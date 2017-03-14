@@ -42,10 +42,10 @@
 
 <body ng-app="faceBuck">
 
+	<header>
+		<h1>FaceBuck</h1>
+	</header>
 	<div ng-include="'partials/nav.html'">
-		<header>
-			<h1>FaceBuck</h1>
-		</header>
 	</div>
 	<div class="row">	
 		<div class="" ng-view></div>
@@ -57,7 +57,7 @@
 	<!-- Links to node modues -->
 	<script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
 	<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- <script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
 	<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
 	<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
 	<!-- Links for factories, ctrls, and app -->
@@ -69,7 +69,7 @@
 	<!-- ///////////////////////-->
 	<script type="text/javascript" src="app/controllers/homeCtrl.js"></script>
 	<script type="text/javascript" src="app/controllers/logCtrl.js"></script>
-	<script type="text/javascript" src="app/controllers/login.js"></script>
+	<script type="text/javascript" src="app/controllers/loginCtrl.js"></script>
 	<script type="text/javascript" src="app/controllers/mapCtrl.js"></script>
 
 </body>

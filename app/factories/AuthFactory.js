@@ -20,7 +20,7 @@ app.factory("AuthFactory", function(){
 			let errorMessage = error.message;
 			console.log("error:", errorCode, errorMessage);
 		});
-	}; x
+	}; 
 
 	let logoutUser = function(){
 		console.log("logoutUser");
