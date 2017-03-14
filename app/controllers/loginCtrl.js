@@ -48,7 +48,7 @@ let logout = () => {
 	        // $scope.isLoggedIn = true;
 	        // console.log("UserCtrl: user is loggedIn", $scope.isLoggedIn );
 	        // $scope.$apply();
-	        $window.location.href = "#!/items/list";
+	        $window.location.href = "#!/home";
 	    });
 	};
 
@@ -59,7 +59,7 @@ let logout = () => {
 	    	var user = result.user.uid;
 	    	console.log("logged in user:", user);
 	    	//Once logged in, go to another view
-	    	$location.path("/items/list");
+	    	$location.path("/home");
 	    	$scope.$apply();
 	  	}).catch(function(error) {
 	    	// Handle the Errors.
