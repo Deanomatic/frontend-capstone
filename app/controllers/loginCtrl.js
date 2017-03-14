@@ -1,4 +1,5 @@
-"use strict";
+"use strict"; 
+console.log("Am i logging controller?");
 
 //login, logout, register, loginGoogle, clever conditional, authFactory
 
@@ -10,20 +11,7 @@ app.controller("loginCtrl", function($scope, $window, AuthFactory, $location){
 	};
 
  
-	let logout = () => {
-			console.log("logout clicked");
-			AuthFactory.logoutUser()
-			.then(function(data){
-				console.log("logged out?", data);
-				$window.location.url = "#!/login";
-			}, function(error){
-				console.log("error occured on logout");
-			});
-		};
-
-	if(AuthFactory.isAuthenticated()){
-		logout();
-	}
+	 	
 
 	$scope.register = () => {
     	console.log("you clicked register");
