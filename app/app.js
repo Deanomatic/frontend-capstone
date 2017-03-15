@@ -24,7 +24,7 @@ app.config(function($routeProvider) {
 		controller: "loginCtrl"
 	})
 	.when("/map", {
-		templateUrl: "partials/map",
+		templateUrl: "partials/map.html",
 		controller: "mapCtrl"
 	})
 	.when("/home", {
