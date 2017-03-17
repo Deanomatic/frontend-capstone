@@ -8,7 +8,7 @@ app.factory("AuthFactory", function(){
 		return firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password)
 		.catch( function(error){
 			let errorCode = error.code;
-			let errorMessage = error.message;
+			let errorMessage = error.message; 
 			console.log("error:", errorCode, errorMessage);
 		});
 	};

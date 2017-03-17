@@ -1,14 +1,13 @@
-"use strict"; 
+"use strict";  
 
-
-app.controller("mapCtrl", function($window, $scope, $timeout, MapFactory) {
+app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory) {
 console.log("Can I get a map up in here??");
 
 $timeout(function() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 6
+      center: {lat: 36.15429, lng: -86.76401},
+      zoom: 13
     });
     var infoWindow = new google.maps.InfoWindow({map: map});
     console.log("map", map);
@@ -19,7 +18,7 @@ $timeout(function() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        MapFactory.saveLocation(pos)
+        UserdataFactory.saveLocation(pos)
         console.log("pos", pos);
         infoWindow.setPosition(pos);
         infoWindow.setContent('Location found.');
@@ -40,8 +39,6 @@ $timeout(function() {
                           'Error: Your browser doesn\'t support geolocation.');
   }
 
-
 }, 500);
-
 
 });
