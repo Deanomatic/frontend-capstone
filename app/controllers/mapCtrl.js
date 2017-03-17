@@ -18,7 +18,7 @@ $timeout(function() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        UserdataFactory.saveLocation(pos)
+        UserdataFactory.saveLocation(pos);
         console.log("pos", pos);
         infoWindow.setPosition(pos);
         infoWindow.setContent('Location found.');

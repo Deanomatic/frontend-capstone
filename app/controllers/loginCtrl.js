@@ -3,7 +3,7 @@ console.log("Am i logging controller?");
 
 //login, logout, register, loginGoogle, clever conditional, authFactory
 
-app.controller("loginCtrl", function($scope, $window, AuthFactory, $location){
+app.controller("loginCtrl", function($scope, $window, AuthFactory, $location, UserdataFactory){
 
 	$scope.account = {
 		email: "",
@@ -34,6 +34,12 @@ let logout = () => {
 	    })
 	    .then( (userData) => {
 	      console.log("UserCtrl newUser:", userData );
+	      let user = {
+	      	name: "Sam",
+	      	uid: userData.uid
+	      };
+	      console.log("User", user);
+	      UserdataFactory.postUserId(user);
 	      $scope.login();
 	    }, (error) => {
 	        console.log("Error creating user:", error);
