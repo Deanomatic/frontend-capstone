@@ -26,7 +26,7 @@ let logout = () => {
 	} 
 	 	
 
-	$scope.register = () => {
+	$scope.register = (user, saveLocation) => {
     	console.log("you clicked register");
 	    AuthFactory.createUser({
 	      email: $scope.account.email,
@@ -38,7 +38,7 @@ let logout = () => {
 	      	name: "Sam",
 	      	uid: userData.uid
 	      };
-	      console.log("User", user);
+	      console.log(user);
 	      UserdataFactory.postUserId(user);
 	      $scope.login();
 	    }, (error) => {
@@ -50,7 +50,9 @@ let logout = () => {
     	console.log("you clicked login");
     	AuthFactory
 	    .loginUser($scope.account)
-	    .then( () => {
+	    .then( (result) => {
+	    	let user = result.uid;
+	    	console.log($scope.account);
 	        // $scope.isLoggedIn = true;
 	        // console.log("UserCtrl: user is loggedIn", $scope.isLoggedIn );
 	        // $scope.$apply();
@@ -62,7 +64,7 @@ let logout = () => {
 		console.log("you clicked login with Google");
 		AuthFactory.authWithProvider()
 		.then(function(result) {
-	    	var user = result.user.uid;
+	    	let user = result.user.uid;
 	    	console.log("logged in user:", user);
 	    	//Once logged in, go to another view
 	    	$location.path("/home");

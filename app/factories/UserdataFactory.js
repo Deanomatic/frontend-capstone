@@ -18,8 +18,8 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 
 
 	//I need to pass whatever I pass into saveLocation into the angular method.
-	let saveLocation = function(coordinates, user){
-		$http.post(`${FBCreds.databaseURL}/users/${user}.json`, angular.toJson(coordinates));
+	let saveLocation = function(coordinates){
+		$http.post(`${FBCreds.databaseURL}/users.json`, angular.toJson(coordinates));
 	};
 return {saveLocation, postUserId};
 });

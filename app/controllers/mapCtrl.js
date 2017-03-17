@@ -1,6 +1,7 @@
 "use strict";  
 
-app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory) {
+app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory, AuthFactory) {
+$scope.user = AuthFactory.getUser();
 console.log("Can I get a map up in here??");
 
 $timeout(function() {
@@ -16,7 +17,8 @@ $timeout(function() {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
           lat: position.coords.latitude,
-          lng: position.coords.longitude
+          lng: position.coords.longitude,
+          uid: $scope.user
         };
         UserdataFactory.saveLocation(pos);
         console.log("pos", pos);
