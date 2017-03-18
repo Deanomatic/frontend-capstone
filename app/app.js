@@ -25,11 +25,18 @@ app.config(function($routeProvider) {
 	})
 	.when("/map", {
 		templateUrl: "partials/map.html",
-		controller: "mapCtrl"
+		controller: "mapCtrl",
+		resolve: {isAuth}
 	})
 	.when("/home", {
 		templateUrl: "partials/home.html",
-		controller: "homeCtrl"
+		controller: "homeCtrl",
+		resolve: {isAuth}
+	})
+	.when("/journal", {
+		templateUrl: "partials/journal.html",
+		controller: "journalCtrl",
+		resolve: {isAuth}
 	})
 	.otherwise("/");
 });

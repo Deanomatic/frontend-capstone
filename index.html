@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>FaceBuck</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<!--materialize links-->
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="/lib/node_modules/materialize-css/dist/css/materialize.css"  media="screen,projection"/>
-	<link type="text/css" rel="stylesheet" href="/lib/node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
-</head>
+	<head>
+		<title>FaceBuck</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<!--materialize links-->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="/lib/node_modules/materialize-css/dist/css/materialize.css"  media="screen,projection"/>
+		<!-- <link type="text/css" rel="stylesheet" href="/lib/node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/> -->
+	</head>
+	<body ng-app="faceBuck">
+		<header>
+			<h1>FaceBuck</h1>
+		</header>
+		<div ng-include="'partials/nav.html'">
+		</div>
+		<div class="row">	
+			<div class="" ng-view></div>
+		</div>
 
-<body ng-app="faceBuck">
-
-	<header>
-		<h1>FaceBuck</h1>
-	</header>
-	<div ng-include="'partials/nav.html'">
-	</div>
-	<div class="row">	
-		<div class="" ng-view></div>
-	</div>
-
-	<!--js link for materialize-->
-	<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.js"></script>
-	<script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.min.js"></script>
-	<!-- Links to node modues -->
-	<script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
-	<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
-	<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
-	<!-- Links for factories, ctrls, and app -->
-	<script type="text/javascript" src="app/app.js"></script>
-	<!-- //////////////////////// -->
-	<script type="text/javascript" src="app/factories/AuthFactory.js"></script>
-	<script type="text/javascript" src="app/factories/UserdataFactory.js"></script>
-	<!--/////////////////////////-->
-	<script type="text/javascript" src="app/FBCreds.js"></script>
-	<!-- ///////////////////////-->
-	<script type="text/javascript" src="app/controllers/homeCtrl.js"></script>
-	<script type="text/javascript" src="app/controllers/logCtrl.js"></script>
-	<script type="text/javascript" src="app/controllers/loginCtrl.js"></script>
-	<script type="text/javascript" src="app/controllers/mapCtrl.js"></script>
-
-
-</body>
+		<!--js link for materialize-->
+		<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.js"></script>
+		<script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.min.js"></script>
+		<!-- Links to node modues -->
+		<script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+		<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+		<!-- Links for factories, ctrls, and app -->
+		<script type="text/javascript" src="app/app.js"></script>
+		<!-- //////////////////////// -->
+		<script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+		<script type="text/javascript" src="app/factories/UserdataFactory.js"></script>
+		<!--/////////////////////////-->
+		<script type="text/javascript" src="app/FBCreds.js"></script>
+		<!-- ///////////////////////-->
+		<script type="text/javascript" src="app/controllers/homeCtrl.js"></script>
+		<script type="text/javascript" src="app/controllers/journalCtrl.js"></script>
+		<script type="text/javascript" src="app/controllers/loginCtrl.js"></script>
+		<script type="text/javascript" src="app/controllers/mapCtrl.js"></script>
+	</body>
 </html>
