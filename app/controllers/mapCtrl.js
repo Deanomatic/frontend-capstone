@@ -5,7 +5,7 @@ $scope.user = AuthFactory.getUser();
 console.log("Can I get a map up in here??");
 var marker;
 
-$timeout(function() {
+$timeout(function() { 
 
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 36.15429, lng: -86.76401},
@@ -13,9 +13,10 @@ $timeout(function() {
     });
 
     var locations = [];
+
     locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15429, -86.76421)});
-    locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15729, -86.76432)});
-    locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.16829, -86.76401)});
+    // locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15729, -86.76432)});
+    // locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.16829, -86.76401)});
 
     for(var i=0; i<locations.length; i++) {
       marker = new google.maps.Marker ({
@@ -24,15 +25,7 @@ $timeout(function() {
         title: locations[i].name
       });
     }
-
-    // var infoWindow = new google.maps.InfoWindow({
-    //   map: map,
-    //   content: "Animal, weather and time."
-    // });
-
-    // google.maps.event.addListener(marker, "click", function() {
-    //   infoWindow.open(map, marker);
-    // });
+    console.log("locations", locations);
 
     console.log("map", map);
     // Try HTML5 geolocation.
@@ -47,7 +40,7 @@ $timeout(function() {
             position: new google.maps.LatLng(pos),
             map: map,
             title: "Buck here",
-            //content: "Animal and weather and what not"
+         //content: "Animal and weather and what not"
         });
 
          var infoWindow = new google.maps.InfoWindow({

@@ -4,7 +4,7 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 	//accessing the current user
 	let user = AuthFactory.getUser();
 
-	let postUserId = (currentUser) => {
+	let postUserLocation = (currentUser) => {
 		return $q((resolve, reject) => {
 			$http.post(`${FBCreds.databaseURL}/users.json`, angular.toJson(currentUser))
 			.then((ObjectFromFirebase) => {
@@ -38,5 +38,5 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 	let saveLocation = function(coordinates){
 		$http.post(`${FBCreds.databaseURL}/users.json`, angular.toJson(coordinates));
 	};
-return {saveLocation, postUserId, getUserId};
+return {saveLocation, postUserLocation, getUserId};
 });
