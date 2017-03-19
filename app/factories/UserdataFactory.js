@@ -15,7 +15,7 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 			});
 		});
 	};
-	let getUserId = () => {
+	let getUserId = (user) => {
 		let users = [];
 		return $q((resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`)

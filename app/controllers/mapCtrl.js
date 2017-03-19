@@ -3,6 +3,7 @@
 app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory, AuthFactory) {
 $scope.user = AuthFactory.getUser();
 console.log("Can I get a map up in here??");
+var marker;
 
 $timeout(function() {
 
@@ -17,28 +18,21 @@ $timeout(function() {
     locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.16829, -86.76401)});
 
     for(var i=0; i<locations.length; i++) {
-      var marker = new google.maps.Marker ({
+      marker = new google.maps.Marker ({
         position: locations[i].latlng,
         map: map, 
         title: locations[i].name
       });
     }
 
-    marker =  new google.maps.Marker({
-        position: new google.maps.LatLng(36.15429, -86.76401),
-        map: map,
-        title: "Buck here",
-        content: "Animal and weather and what not"
-    });
+    // var infoWindow = new google.maps.InfoWindow({
+    //   map: map,
+    //   content: "Animal, weather and time."
+    // });
 
-    var infoWindow = new google.maps.InfoWindow({
-      map: map,
-      content: "Animal, weather and time."
-    });
-
-    google.maps.event.addListener(marker, "click", function() {
-      infoWindow.open(map, marker);
-    });
+    // google.maps.event.addListener(marker, "click", function() {
+    //   infoWindow.open(map, marker);
+    // });
 
     console.log("map", map);
     // Try HTML5 geolocation.
@@ -49,10 +43,26 @@ $timeout(function() {
           lng: position.coords.longitude,
           uid: $scope.user
         };
+        var marker =  new google.maps.Marker({
+            position: new google.maps.LatLng(pos),
+            map: map,
+            title: "Buck here",
+            //content: "Animal and weather and what not"
+        });
+
+         var infoWindow = new google.maps.InfoWindow({
+            map: map,
+            content: "Animal, weather and time."
+          });
+
+          google.maps.event.addListener(marker, "click", function() {
+            infoWindow.open(map, marker);
+          });
+
         UserdataFactory.saveLocation(pos);
         console.log("pos", pos);
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found. Buck stops here!');
+        //infoWindow.setPosition(pos);
+        //infoWindow.setContent('Location found. Buck stops here!');
         map.setCenter(pos);
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
