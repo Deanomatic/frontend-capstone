@@ -17,7 +17,7 @@ $timeout(function() {
     });
 
     var locations = [];
-    console.log($scope.userData.length);
+    //console.log($scope.userData);
     // locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15429, -86.76421)});
 
     // for(var i=0; i<locations.length; i++) {
