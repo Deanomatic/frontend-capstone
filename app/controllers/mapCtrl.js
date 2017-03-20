@@ -1,9 +1,13 @@
 "use strict";
  
 app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory, AuthFactory) {
-$scope.user = AuthFactory.getUser();
-console.log("Can I get a map up in here??");
+let user = AuthFactory.getUser();
 var marker;
+var newData = UserdataFactory.userData(user)
+        .then((data) => {
+           $scope.userData = data.data;
+           console.log("scope data", $scope.userData);
+         }); 
 
 $timeout(function() { 
 
@@ -13,21 +17,17 @@ $timeout(function() {
     });
 
     var locations = [];
+    console.log($scope.userData.length);
+    // locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15429, -86.76421)});
 
-    locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15429, -86.76421)});
-    // locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15729, -86.76432)});
-    // locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.16829, -86.76401)});
+    // for(var i=0; i<locations.length; i++) {
+    //   marker = new google.maps.Marker ({
+    //     position: locations[i].latlng,
+    //     map: map, 
+    //     title: locations[i].name
+    //   });
+    // }
 
-    for(var i=0; i<locations.length; i++) {
-      marker = new google.maps.Marker ({
-        position: locations[i].latlng,
-        map: map, 
-        title: locations[i].name
-      });
-    }
-    console.log("locations", locations);
-
-    console.log("map", map);
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -36,7 +36,7 @@ $timeout(function() {
           lng: position.coords.longitude,
           uid: $scope.user
         };
-        var marker =  new google.maps.Marker({
+        var marker =  new google.maps.Marker ({
             position: new google.maps.LatLng(pos),
             map: map,
             title: "Buck here",
@@ -58,11 +58,11 @@ $timeout(function() {
         //infoWindow.setContent('Location found. Buck stops here!');
         map.setCenter(pos);
       }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
+        handleLocationError(true, map.getCenter());
       });
     } else {
       // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
+      handleLocationError(false, map.getCenter());
     }
 
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -73,5 +73,7 @@ $timeout(function() {
   }
 
 }, 500);
+
+
 
 });

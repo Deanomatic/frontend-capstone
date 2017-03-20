@@ -1,7 +1,10 @@
 #map {
 	height: 500px;
-    width: 100%;
+    padding: 0;
+    margin: 0;
+
 }
+
 body {
 	display: flex;
 	min-height: 100vh;
@@ -36,5 +39,5 @@ h1 {
 }
 
 header {
-	background: #827717;
+	background: #e6ee9c;
 }
