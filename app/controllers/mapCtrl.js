@@ -34,7 +34,7 @@ $timeout(function() {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
-          uid: $scope.user
+          uid: user
         };
         var marker =  new google.maps.Marker ({
             position: new google.maps.LatLng(pos),
