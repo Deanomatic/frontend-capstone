@@ -58,6 +58,7 @@ let logout = () => {
 	$scope.loginGoogle = () => {
 		AuthFactory.authWithProvider()
 		.then(function(result) {
+			console.log("result", result);
 	    	let user = result.user.uid;
 	    	//Once logged in, go to another view
 	    	$location.path("/home");

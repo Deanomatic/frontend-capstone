@@ -4,14 +4,17 @@ app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory, A
 let user = AuthFactory.getUser();
 var marker;
 var userData;
-var newData = UserdataFactory.userData(user)
+let getUserLocations = () => {
+UserdataFactory.userData(user)
         .then((data) => {
         userData = data;
            console.log("scope data", userData);
          }); 
+  
+}; 
 
 $timeout(function() { 
-
+  getUserLocations();
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 36.15429, lng: -86.76401},
       zoom: 14 
@@ -36,12 +39,12 @@ $timeout(function() {
          //content: "Animal and weather and what not"
         });
         for(var i=0; i<userData.length; i++) {
-          pos = {
+          let coordinates = { 
             lat: userData[i].lat,
             lng: userData[i].lng
           };
           marker = new google.maps.Marker ({
-            position: new google.maps.LatLng(pos),
+            position: new google.maps.LatLng(coordinates),
             map: map,
             title: "Buck here"
           });
