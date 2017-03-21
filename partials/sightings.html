@@ -1,0 +1,19 @@
+<div ng-controller="sightingsCtrl">
+   <nav>
+    <div class="row nav-wrapper">
+        <div class=" input-field grey lighten-5 col s12">
+          <input class="right-align" id="search" type="search" required>
+          <label class="label-icon right-align" for="search"><i class="material-icons">search</i></label>
+        </div>
+    </div>
+  </nav>
+  <div ng-repeat="item in items | filter: searchText.search" class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-xs-1"><input type="checkbox" name=""/></div>
+      <div class="col-xs-7"><a ng-href="#!/items/{{item.id}}">{{item.task}}</a></div>
+      <div class="col-xs-2">{{item.dueDate}}</div>
+      <div class="col-xs-1">{{item.assignedTo}}</div>
+      <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(item.id)">X</button></div>
+    </div>
+  </div>
+</div>

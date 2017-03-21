@@ -3,10 +3,11 @@
 app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory, AuthFactory) {
 let user = AuthFactory.getUser();
 var marker;
+var userData;
 var newData = UserdataFactory.userData(user)
         .then((data) => {
-           $scope.userData = data.data;
-           console.log("scope data", $scope.userData);
+        userData = data;
+           console.log("scope data", userData);
          }); 
 
 $timeout(function() { 
@@ -17,16 +18,8 @@ $timeout(function() {
     });
 
     var locations = [];
-    //console.log($scope.userData);
-    // locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15429, -86.76421)});
-
-    // for(var i=0; i<locations.length; i++) {
-    //   marker = new google.maps.Marker ({
-    //     position: locations[i].latlng,
-    //     map: map, 
-    //     title: locations[i].name
-    //   });
-    // }
+    //console.log(userData);
+    //locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15429, -86.76421)});
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -39,9 +32,22 @@ $timeout(function() {
         var marker =  new google.maps.Marker ({
             position: new google.maps.LatLng(pos),
             map: map,
-            title: "Buck here",
+            title: "Buck here"
          //content: "Animal and weather and what not"
         });
+        for(var i=0; i<userData.length; i++) {
+          pos = {
+            lat: userData[i].lat,
+            lng: userData[i].lng
+          };
+          marker = new google.maps.Marker ({
+            position: new google.maps.LatLng(pos),
+            map: map,
+            title: "Buck here"
+          });
+         //console.log("marker", marker);
+        }
+
 
          var infoWindow = new google.maps.InfoWindow({
             map: map,

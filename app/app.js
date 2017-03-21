@@ -31,8 +31,8 @@ app.config(function($routeProvider) {
 		resolve: {isAuth}
 	})
 	.when("/journal", {
-		templateUrl: "partials/journal.html",
-		controller: "journalCtrl",
+		templateUrl: "partials/sightings.html",
+		controller: "sightingsCtrl",
 		resolve: {isAuth}
 	})
 	.otherwise("/");

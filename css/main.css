@@ -1,3 +1,10 @@
+html {
+    font-family: 'Alfa Slab One';font-size: 22px;
+}
+
+/*html {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  }*/
 #map {
 	height: 500px;
     padding: 0;
