@@ -7,7 +7,73 @@
         </div>
     </div>
   </nav>
-  <div ng-repeat="item in items | filter: searchText.search" class="panel panel-default">
+    <a ng-click="showForm()" class="btn-floating btn-large waves-effect lime lighten-4"><i class="material-icons">add</i></a>
+
+<form ng-show="addSighting">
+            <div class="form-group">
+              <label>Task Description</label>
+              <!-- TODO: Hook up this form to our JS for submitting -->
+              <input type="text" class="form-control" placeholder="Some important task" ng-model="newTask.task" />
+            </div>
+            <div class="form-group">
+              <label>Due Date</label>
+              <input type="text" class="form-control" placeholder="01/12/17" ng-model="newTask.dueDate"/>
+            </div>
+            <div class="form-group">
+              <label>Assigned To</label>
+              <input type="text" class="form-control" placeholder="cohort 15" ng-model="newTask.assignedTo" />
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" class="form-control" placeholder="attic" ng-model="newTask.location" />
+            </div>
+            <div class="form-group">
+              <label>Urgency</label>
+              <input type="text" class="form-control" placeholder="low" ng-model="newTask.urgency" />
+            </div>
+            <div class="form-group">
+              <label>Dependencies</label>
+              <input type="text" class="form-control" placeholder="brush chipper, monkey chow, the one ring" ng-model="newTask.dependencies" />
+            </div>
+            <!-- TODO: bind this button to a function -->
+            <button class="btn btn-default" ng-click="addNewItem()">{{btnText}}</button>
+     </form>
+
+  <ul ng-show="showList" class="collection">
+    <li class="collection-item avatar">
+      <img src="" alt="" class="circle">
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">folder</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>
+  <!-- <div ng-repeat="item in items | filter: searchText.search" class="panel panel-default">
     <div class="panel-body">
       <div class="col-xs-1"><input type="checkbox" name=""/></div>
       <div class="col-xs-7"><a ng-href="#!/items/{{item.id}}">{{item.task}}</a></div>
@@ -15,5 +81,5 @@
       <div class="col-xs-1">{{item.assignedTo}}</div>
       <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(item.id)">X</button></div>
     </div>
-  </div>
+  </div> -->
 </div>

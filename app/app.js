@@ -30,7 +30,7 @@ app.config(function($routeProvider) {
 		controller: "homeCtrl",
 		resolve: {isAuth}
 	})
-	.when("/journal", {
+	.when("/sightings", {
 		templateUrl: "partials/sightings.html",
 		controller: "sightingsCtrl",
 		resolve: {isAuth}

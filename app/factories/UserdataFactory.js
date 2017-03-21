@@ -15,15 +15,7 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 			});
 		});
 	};
-
-
-	/**
-	 * @param  {user} - Gets the user from the AuthFactory when gets called.
-	 * @return {http promise} - All user's data from FB.
-	 */
-	// let userData = (user) => {
-	// return $http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`);
-	// };
+	
 
 	//I need to pass whatever I pass into saveLocation into the angular method.
 	let saveLocation = function(coordinates){
@@ -48,6 +40,19 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 			})
 			.catch((error) => {
 				reject(error);
+			});
+		});
+	};
+
+	let postNewItem = (newItem) => {
+		return $q((resolve, reject) => {
+			$http.post(`${FBCreds.databaseURL}/items.json`,
+				JSON.stringify(newItem))
+			.then((ObjectFromFirebase) => {
+				resolve(ObjectFromFirebase);
+			})
+			.catch((error)=>{
+
 			});
 		});
 	};
