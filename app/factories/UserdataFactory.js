@@ -15,16 +15,6 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 			});
 		});
 	};
-
-
-	/**
-	 * @param  {user} - Gets the user from the AuthFactory when gets called.
-	 * @return {http promise} - All user's data from FB.
-	 */
-	// let userData = (user) => {
-	// return $http.get(`${FBCreds.databaseURL}/users.json?orderBy="uid"&equalTo="${user}"`);
-	// };
-
 	//I need to pass whatever I pass into saveLocation into the angular method.
 	let saveLocation = function(coordinates){
 		$http.post(`${FBCreds.databaseURL}/users.json`, angular.toJson(coordinates));
@@ -40,11 +30,27 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 				.forEach((key) => {
 					itemCollection[key].id = key;
 					data.push(itemCollection[key]);
-					//console.log("itemCollection", itemCollection);	
 				});
-				//console.log(data);
 				resolve(data);
-				//console.log("users", users);
+			})
+			.catch((error) => {
+				reject(error);
+			});
+		});
+	};
+	let getItemList = (user) => {
+		let list = [];
+		return $q((resolve, reject) => {
+			$http.get(`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
+			.then((itemObject) => {
+				console.log(itemObject);
+				let itemCollection = itemObject.data;
+				Object.keys(itemCollection)
+				.forEach((key) => {
+					itemCollection[key].id = key;
+					list.push(itemCollection[key]);
+				});
+				resolve(list);
 			})
 			.catch((error) => {
 				reject(error);
@@ -52,6 +58,43 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 		});
 	};
 
+
+	let postNewItem = (newItem) => {
+		return $q((resolve, reject) => {
+			$http.post(`${FBCreds.databaseURL}/items.json`,
+				JSON.stringify(newItem))
+			.then((ObjectFromFirebase) => {
+				resolve(ObjectFromFirebase);
+			})
+			.catch((error)=>{
+
+			});
+		});
+	};
+
+	let deleteItem = (itemId) => {
+		console.log("delete the factory", itemId);
+		return $q((resolve, reject) => {
+			$http.delete(`${FBCreds.databaseURL}/items/${itemId}.json`)
+			.then((ObjectFromFirebase) => {
+				resolve(ObjectFromFirebase);
+			});
+		});
+	};
+
+	var getSingleItem = (itemId)=> {
+		return $q(function(resolve, reject){
+			$http.get(`${FBCreds.databaseURL}/items/${itemId}.json`)
+			.then(function(itemObject){
+				resolve(itemObject.data);
+			})
+			.catch(function(error){
+				reject(error);
+			});
+
+		});
+	};
+
 	
-return {saveLocation, postUserLocation, userData};
+return {saveLocation, postUserLocation, userData, postNewItem, getSingleItem, deleteItem, getItemList};
 });

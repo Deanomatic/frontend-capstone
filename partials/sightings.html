@@ -2,12 +2,35 @@
    <nav>
     <div class="row nav-wrapper">
         <div class=" input-field grey lighten-5 col s12">
-          <input class="right-align" id="search" type="search" required>
+          <input ng-model="searchText.search" class="right-align" id="search" type="search" required>
           <label class="label-icon right-align" for="search"><i class="material-icons">search</i></label>
         </div>
     </div>
   </nav>
-  <div ng-repeat="item in items | filter: searchText.search" class="panel panel-default">
+    <a ng-click="showForm()" class="btn-floating btn-large waves-effect lime lighten-3"><i class="material-icons">add</i></a>
+
+<form ng-show="addSighting">
+            <div class="form-group">
+              <label>Type of Sighting</label>
+              <!-- TODO: Hook up this form to our JS for submitting -->
+              <input type="text" class="form-control" placeholder="What did you see?" ng-model="newTask.task" />
+            </div>
+            <div class="form-group">
+              <label>Date seen</label>
+              <input type="text" class="form-control" placeholder="Today is.." ng-model="newTask.dueDate"/>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" class="form-control" placeholder="Details" ng-model="newTask.assignedTo" />
+            </div>
+            <div class="form-group">
+              <label>Weather Conditions</label>
+              <input type="text" class="form-control" placeholder="Sunny" ng-model="newTask.location" />
+            </div>
+            <!-- TODO: bind this button to a function -->
+            <button class="btn btn-default" ng-click="addNewItem(); addList()">{{btnText}}</button>
+     </form>
+  <div ng-show="showList" ng-repeat="item in items | filter: searchText.search" class="panel panel-default">
     <div class="panel-body">
       <div class="col-xs-1"><input type="checkbox" name=""/></div>
       <div class="col-xs-7"><a ng-href="#!/items/{{item.id}}">{{item.task}}</a></div>
@@ -16,4 +39,39 @@
       <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(item.id)">X</button></div>
     </div>
   </div>
+  <!-- <ul ng-show="showList" class="collection">
+    <li class="collection-item avatar">
+      <img src="" alt="" class="circle">
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">folder</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul> -->
+  
 </div>
