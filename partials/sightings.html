@@ -7,7 +7,7 @@
         </div>
     </div>
   </nav>
-    <a ng-click="showForm()" class="btn-floating btn-large waves-effect lime lighten-4"><i class="material-icons">add</i></a>
+    <a ng-click="showForm()" class="btn-floating btn-large waves-effect lime lighten-3"><i class="material-icons">add</i></a>
 
 <form ng-show="addSighting">
             <div class="form-group">
@@ -36,10 +36,18 @@
               <input type="text" class="form-control" placeholder="brush chipper, monkey chow, the one ring" ng-model="newTask.dependencies" />
             </div>
             <!-- TODO: bind this button to a function -->
-            <button class="btn btn-default" ng-click="addNewItem()">{{btnText}}</button>
+            <button class="btn btn-default" ng-click="addNewItem(); addList()">{{btnText}}</button>
      </form>
-
-  <ul ng-show="showList" class="collection">
+  <div ng-show="showList" ng-repeat="item in items | filter: searchText.search" class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-xs-1"><input type="checkbox" name=""/></div>
+      <div class="col-xs-7"><a ng-href="#!/items/{{item.id}}">{{item.task}}</a></div>
+      <div class="col-xs-2">{{item.dueDate}}</div>
+      <div class="col-xs-1">{{item.assignedTo}}</div>
+      <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(item.id)">X</button></div>
+    </div>
+  </div>
+  <!-- <ul ng-show="showList" class="collection">
     <li class="collection-item avatar">
       <img src="" alt="" class="circle">
       <span class="title">Title</span>
@@ -72,14 +80,6 @@
       </p>
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
-  </ul>
-  <!-- <div ng-repeat="item in items | filter: searchText.search" class="panel panel-default">
-    <div class="panel-body">
-      <div class="col-xs-1"><input type="checkbox" name=""/></div>
-      <div class="col-xs-7"><a ng-href="#!/items/{{item.id}}">{{item.task}}</a></div>
-      <div class="col-xs-2">{{item.dueDate}}</div>
-      <div class="col-xs-1">{{item.assignedTo}}</div>
-      <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(item.id)">X</button></div>
-    </div>
-  </div> -->
+  </ul> -->
+  
 </div>

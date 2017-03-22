@@ -15,8 +15,6 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 			});
 		});
 	};
-	
-
 	//I need to pass whatever I pass into saveLocation into the angular method.
 	let saveLocation = function(coordinates){
 		$http.post(`${FBCreds.databaseURL}/users.json`, angular.toJson(coordinates));
@@ -32,11 +30,8 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 				.forEach((key) => {
 					itemCollection[key].id = key;
 					data.push(itemCollection[key]);
-					//console.log("itemCollection", itemCollection);	
 				});
-				//console.log(data);
 				resolve(data);
-				//console.log("users", users);
 			})
 			.catch((error) => {
 				reject(error);
@@ -57,6 +52,29 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 		});
 	};
 
+	let deleteItem = (itemId) => {
+		console.log("delete the factory", itemId);
+		return $q((resolve, reject) => {
+			$http.delete(`${FBCreds.databaseURL}/items/${itemId}.json`)
+			.then((ObjectFromFirebase) => {
+				resolve(ObjectFromFirebase);
+			});
+		});
+	};
+
+	var getSingleItem = (itemId)=> {
+		return $q(function(resolve, reject){
+			$http.get(`${FBCreds.databaseURL}/items/${itemId}.json`)
+			.then(function(itemObject){
+				resolve(itemObject.data);
+			})
+			.catch(function(error){
+				reject(error);
+			});
+
+		});
+	};
+
 	
-return {saveLocation, postUserLocation, userData};
+return {saveLocation, postUserLocation, userData, postNewItem, getSingleItem, deleteItem};
 });
