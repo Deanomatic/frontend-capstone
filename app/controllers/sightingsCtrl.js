@@ -45,7 +45,7 @@ app.controller("sightingsCtrl", function($scope, AuthFactory, UserdataFactory, $
 	      $scope.newTask = response;
 	  });
 	};
-	UserdataFactory.userData(user)
+	UserdataFactory.getItemList(user)
     .then(function(itemCollection){
         $scope.items = itemCollection;
         console.log("yo", $scope.items);
@@ -55,7 +55,7 @@ app.controller("sightingsCtrl", function($scope, AuthFactory, UserdataFactory, $
         console.log("delete this item", itemId);
         UserdataFactory.deleteItem(itemId)
         .then(function(response){
-            UserdataFactory.userData(user).then(function(itemCollection){
+            UserdataFactory.getItemList(user).then(function(itemCollection){
                 $scope.items = itemCollection;
             });
         });

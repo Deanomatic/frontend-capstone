@@ -38,6 +38,26 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 			});
 		});
 	};
+	let getItemList = (user) => {
+		let list = [];
+		return $q((resolve, reject) => {
+			$http.get(`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
+			.then((itemObject) => {
+				console.log(itemObject);
+				let itemCollection = itemObject.data;
+				Object.keys(itemCollection)
+				.forEach((key) => {
+					itemCollection[key].id = key;
+					list.push(itemCollection[key]);
+				});
+				resolve(list);
+			})
+			.catch((error) => {
+				reject(error);
+			});
+		});
+	};
+
 
 	let postNewItem = (newItem) => {
 		return $q((resolve, reject) => {
@@ -76,5 +96,5 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 	};
 
 	
-return {saveLocation, postUserLocation, userData, postNewItem, getSingleItem, deleteItem};
+return {saveLocation, postUserLocation, userData, postNewItem, getSingleItem, deleteItem, getItemList};
 });
