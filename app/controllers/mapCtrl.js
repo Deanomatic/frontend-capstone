@@ -38,6 +38,8 @@ $timeout(function() {
             title: "Buck here"
          //content: "Animal and weather and what not"
         });
+        $timeout(function(){
+
         for(var i=0; i<userData.length; i++) {
           let coordinates = { 
             lat: userData[i].lat,
@@ -50,6 +52,8 @@ $timeout(function() {
           });
          //console.log("marker", marker);
         }
+        
+        }, 400);
 
 
          var infoWindow = new google.maps.InfoWindow({
