@@ -43,7 +43,7 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 		return $q((resolve, reject) => {
 			$http.get(`${FBCreds.databaseURL}/items.json?orderBy="uid"&equalTo="${user}"`)
 			.then((itemObject) => {
-				console.log(itemObject);
+				// console.log(itemObject);
 				let itemCollection = itemObject.data;
 				Object.keys(itemCollection)
 				.forEach((key) => {
