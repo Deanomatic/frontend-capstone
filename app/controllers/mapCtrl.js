@@ -56,14 +56,14 @@ $timeout(function() {
         }, 400);
 
 
-         var infoWindow = new google.maps.InfoWindow({
-            map: map,
-            content: "Animal, weather and time."
-          });
+         // var infoWindow = new google.maps.InfoWindow({
+         //    map: map,
+         //    content: "Animal, weather and time."
+         //  });
 
-          google.maps.event.addListener(marker, "click", function() {
-            infoWindow.open(map, marker);
-          });
+         //  google.maps.event.addListener(marker, "click", function() {
+         //    infoWindow.open(map, marker);
+         //  });
 
         UserdataFactory.saveLocation(pos);
         console.log("pos", pos);
