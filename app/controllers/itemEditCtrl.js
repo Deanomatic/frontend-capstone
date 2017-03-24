@@ -1,4 +1,4 @@
-"use strict";  
+"use strict";
 
 app.controller("itemEditCtrl", function($scope, $location, $routeParams, UserdataFactory){
   
@@ -18,7 +18,7 @@ $scope.addNewList = function(){
     UserdataFactory.updateItem($routeParams.itemId, $scope.newTask)
     .then(function successCallback(response) {  
       console.log(response);
-      $location.url("#!/sightings");
+      $location.url("/sightings");
     });
   };
 });

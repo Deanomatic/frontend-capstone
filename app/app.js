@@ -41,7 +41,7 @@ app.config(function($routeProvider) {
         resolve: {isAuth}
     })
     .when("/items/:itemId/edit", {
-        templateUrl: "partials/editSightings.html",
+        templateUrl: "partials/editSighting.html",
         controller: "itemEditCtrl",
         resolve: {isAuth}
     })
