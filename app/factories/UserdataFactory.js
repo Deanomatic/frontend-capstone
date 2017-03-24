@@ -95,6 +95,21 @@ app.factory("UserdataFactory", function($q, $http, FBCreds, AuthFactory){
 		});
 	};
 
+	var updateItem = (itemId, editedItem) => {
+		return $q(function(resolve, reject){
+			$http.patch(`${FBCreds.databaseURL}/items/${itemId}.json`,
+				//angular.toJson(editedItem) is to get rid of all the extra characters.
+			angular.toJson(editedItem))
+			.then(function(ObjectFromFirebase){
+				resolve(ObjectFromFirebase);
+			})
+			.catch(function(error){
+				reject(error);
+			});
+		});
+	};
+
+
 	
-return {saveLocation, postUserLocation, userData, postNewItem, getSingleItem, deleteItem, getItemList};
+return {saveLocation, postUserLocation, userData, postNewItem, getSingleItem, deleteItem, getItemList, updateItem};
 });

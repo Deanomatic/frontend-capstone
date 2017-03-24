@@ -1,0 +1,9 @@
+<h4>Item Details</h4>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>Type of Sighting: </strong> {{selectedItem.assignedTo}}</li>
+    <li class="list-group-item"><strong>Date seen:</strong> {{selectedItem.dueDate}}</li>
+    <li class="list-group-item"><strong>Description:</strong> {{selectedItem.dependencies}}</li>
+    <li class="list-group-item"><strong>Weather Conditions:</strong> {{selectedItem.location}}</li>
+</ul>
+<button class="btn green darken-4"><a ng-href="#!/items/{{selectedItem.id}}/edit"><i class="material-icons">edit</i></a></button>

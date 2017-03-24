@@ -1,0 +1,22 @@
+<h4>{{title}}</h4>  
+         <form ng-conroller="itemEditCtrl">
+            <div class="form-group">
+              <label>Type of Sighting</label>
+              <!-- TODO: Hook up this form to our JS for submitting -->
+              <input type="text" class="form-control" placeholder="What did you see?" ng-model="newTask.task" />
+            </div>
+            <div class="form-group">
+              <label>Date seen</label>
+              <input type="text" class="form-control" placeholder="Today is.." ng-model="newTask.dueDate"/>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" class="form-control" placeholder="Details" ng-model="newTask.assignedTo" />
+            </div>
+            <div class="form-group">
+              <label>Weather Conditions</label>
+              <input type="text" class="form-control" placeholder="Sunny" ng-model="newTask.location" />
+            </div>
+            <!-- TODO: bind this button to a function -->
+            <button class="btn green darken-4" ng-click="addNewItem()">{{btnText}}</button>
+     </form>

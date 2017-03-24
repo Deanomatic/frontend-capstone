@@ -9,7 +9,7 @@
   </nav>
     <a ng-click="showForm()" class="btn-floating btn-large waves-effect lime lighten-3"><i class="material-icons">add</i></a>
 
-<form ng-show="addSighting">
+<form ng-show="addSighting"> 
             <div class="form-group">
               <label>Type of Sighting</label>
               <!-- TODO: Hook up this form to our JS for submitting -->
@@ -28,7 +28,7 @@
               <input type="text" class="form-control" placeholder="Sunny" ng-model="newTask.location" />
             </div>
             <!-- TODO: bind this button to a function -->
-            <button class="btn green darken-4" ng-click="addNewItem(); addList()">{{btnText}}</button>
+            <button class="btn green darken-4" ng-click="addNewItem()">{{btnText}}</button>
      </form>
   <div ng-show="showList" ng-repeat="item in items | filter: searchText.search" class="panel panel-default">
     <div class="panel-body">
