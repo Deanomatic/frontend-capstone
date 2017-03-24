@@ -8,7 +8,7 @@ app.controller("sightingsCtrl", function($scope, AuthFactory, UserdataFactory, $
 	$scope.showForm = ()=> {
 		$scope.addSighting = true;
 		$scope.showList = false;
-	}
+	};
 
 	let user = AuthFactory.getUser();
 	$scope.items = [];

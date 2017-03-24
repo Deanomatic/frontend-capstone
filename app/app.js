@@ -27,7 +27,7 @@ app.config(function($routeProvider) {
 	})
 	.when("/home", {
 		templateUrl: "partials/home.html",
-		controller: "homeCtrl",
+		controller: "markersCtrl",
 		resolve: {isAuth}
 	})
 	.when("/sightings", {
@@ -35,6 +35,16 @@ app.config(function($routeProvider) {
 		controller: "sightingsCtrl",
 		resolve: {isAuth}
 	})
+    .when("/items/:itemId", {
+        templateUrl: "partials/item-details.html",
+        controller: "itemDetailsCtrl",
+        resolve: {isAuth}
+    })
+    .when("/items/:itemId/edit", {
+        templateUrl: "partials/editSightings.html",
+        controller: "itemEditCtrl",
+        resolve: {isAuth}
+    })
 	.otherwise("/");
 });
 //You need this to authrnticate your firebase. It won't run without it.

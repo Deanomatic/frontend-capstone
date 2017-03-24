@@ -1,6 +1,6 @@
 "use strict"; 
 
-app.controller("homeCtrl", function($scope, $window, UserdataFactory, AuthFactory){
+app.controller("markersCtrl", function($scope, $window, UserdataFactory, AuthFactory){
 	let user = AuthFactory.getUser();
 	// Runmap is changing the view to map partial. 
 	$scope.runMap = ()=> {
