@@ -7,5 +7,8 @@ app.controller("markersCtrl", function($scope, $window, UserdataFactory, AuthFac
 		//This needs scope to give it access to the partial.
 		$window.location.href = "#!/map";
 	};
+	$(document).ready(function(){
+	    $('.tooltipped').tooltip({delay: 50});
+	  });
 
 });
