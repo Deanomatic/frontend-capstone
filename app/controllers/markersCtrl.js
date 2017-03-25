@@ -9,6 +9,5 @@ app.controller("markersCtrl", function($scope, $window, UserdataFactory, AuthFac
 	};
 	$(document).ready(function(){
 	    $('.tooltipped').tooltip({delay: 50});
-	  });
-
+	});
 });
