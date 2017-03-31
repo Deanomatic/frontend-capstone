@@ -1,4 +1,4 @@
-"use strict"; 
+"use strict";
 
 app.controller("markersCtrl", function($scope, $window, UserdataFactory, AuthFactory){
 	let user = AuthFactory.getUser();
