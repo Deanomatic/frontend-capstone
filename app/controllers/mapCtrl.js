@@ -54,7 +54,7 @@ $timeout(function() {
          //console.log("marker", marker);
         }
         
-        }, 400);
+        }, 500);
 
 
          // var infoWindow = new google.maps.InfoWindow({
