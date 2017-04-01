@@ -34,10 +34,10 @@ $timeout(function() {
         };
         var marker =  new google.maps.Marker ({
             position: new google.maps.LatLng(pos),
-            map: map,
-            title: "Buck here"
+            map: map
          //content: "Animal and weather and what not"
         });
+
         $timeout(function(){
 
         for(var i=0; i<userData.length; i++) {
@@ -48,6 +48,7 @@ $timeout(function() {
           marker = new google.maps.Marker ({
             position: new google.maps.LatLng(coordinates),
             map: map,
+            icon: "/images/pins/buck-pin.png",
             title: "Buck here"
           });
          //console.log("marker", marker);

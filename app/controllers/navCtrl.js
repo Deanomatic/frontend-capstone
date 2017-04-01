@@ -7,7 +7,7 @@ app.controller("navCtrl", function($scope, $window){
 	firebase.auth().onAuthStateChanged(function(user){
 		if (user) {
 			$scope.isLoggedIn = true;
-		}else{
+		} else{
     		$scope.isLoggedIn = false;
     		$window.locationhref = "#!/login";
     	}
