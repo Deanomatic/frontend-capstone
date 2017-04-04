@@ -1,5 +1,7 @@
 "use strict";
- 
+ //I need a a marker function that will save the data as the specific icon, 
+ //but will add the new icon that is specified. So the old icons are still 
+ //saved the way they should be and the new one is not overwritten.
 app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory, AuthFactory) {
 let user = AuthFactory.getUser();
 var marker;
@@ -39,7 +41,6 @@ $timeout(function() {
         });
 
         $timeout(function(){
-
         for(var i=0; i<userData.length; i++) {
           let coordinates = { 
             lat: userData[i].lat,
@@ -53,7 +54,6 @@ $timeout(function() {
           });
          //console.log("marker", marker);
         }
-        
         }, 500);
 
 
