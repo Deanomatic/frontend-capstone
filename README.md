@@ -8,7 +8,7 @@
 * You will also need a google maps API key. Simply go to the [Google developer site](https://developers.google.com/maps/documentation/javascript/get-api-key) and request a key. Place this key in mapAPI.js to conceal your key just like the FBCreds.js file.
 ## The Installations
 * Just run `npm install` in your terminal and it will install all dependencies needed.
-* If you don't have npm, get npm.
+* If you don't have Node Package Manager, you will need that before you can install what is needed.
 * Start up a local server and get into the app.
 ---
 # Purpose of the app
