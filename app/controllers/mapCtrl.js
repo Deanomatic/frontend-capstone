@@ -15,7 +15,8 @@ UserdataFactory.userData(user)
   
 }; 
 
-$timeout(function() { 
+let runBuck = () => {
+
   getUserLocations();
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 36.15429, lng: -86.76401},
@@ -85,8 +86,8 @@ $timeout(function() {
                           'Error: The Geolocation service failed.' :
                           'Error: Your browser doesn\'t support geolocation.');
   }
-
-}, 500);
+  
+}; 
 
 
 
