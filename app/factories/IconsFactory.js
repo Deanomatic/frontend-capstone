@@ -9,10 +9,10 @@ app.factory("IconsFactory", function(){
 	//         });
 	//     });
 	// });
-	iconId = document.addEventListener("click", function(e){
-		console.log("Got the Id", e.target.id)
-		return e.target.id
-	})
+	function(mouseEvent){
+    
+  }
+  iconId();
 
 	if (iconId == 1){
 		for(var i=0; i<userData.length; i++) {
