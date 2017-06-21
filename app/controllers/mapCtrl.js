@@ -10,65 +10,54 @@ var icon = IconsFactory.getsavedinfo();
 var saved_icon = {
   "buck": {
     'image': "/images/pins/buck-pin.png", 
-    'title': 'A buck was here'
+    'title': 'A buck was sighted here'
   },
   "doe": {
     'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'title': 'A doe was sighted here'
   },
   "turkey": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/turkey-pin.png", 
+    'title': 'A turkey was sighted here'
   },
   "droppings": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/poop-pin.png", 
+    'title': 'Droppings were sighted here'
   },
   "food-source": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/acorn-pin.png", 
+    'title': 'A food source was sighted here'
   },
   "predator": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/predator.png", 
+    'title': 'A predator was sighted here'
   },
   "road-kill": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/road-kill-pin.png", 
+    'title': 'Road kill was sighted here'
   },
   "shed": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/shed-pin.png", 
+    'title': 'A buck shed was sighted here'
   },
   "tracks": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/tracks.png", 
+    'title': 'Tracks were sighted here'
   },
   "trail": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/trail-pin.png", 
+    'title': 'A trail was sighted here'
   },
   "buck-rub": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/tree-pin.png", 
+    'title': 'A buck rub was sighted here'
   },
   "water-source": {
-    'image': "/images/pins/doe-pin.png", 
-    'title': 'A doe was here'
+    'image': "/images/pins/water-pin.png", 
+    'title': 'A water source was sighted here'
   }
-  // "doe": "/images/pins/doe-pin.png",
-  // "turkey": "/images/pins/turkey-pin.png",
-  // "droppings": "/images/pins/poop-pin.png",
-  // "food-source": "/images/pins/acorn-pin.png",
-  // "predator": "/images/pins/predator.png",
-  // "road-kill": "/images/pins/road-kill-pin.png",
-  // "shed": "/images/pins/shed-pin.png",
-  // "tracks": "/images/pins/tracks-pin.png",
-  // "trail": "/images/pins/trail-pin.png",
-  // "buck-rub": "/images/pins/tree-pin.png",
-  // "water-source": "/images/pins/water-pin.png"
 };
-console.log("saved icon", saved_icon, icon, saved_icon[icon]);
+
 let getUserLocations = () => {
 UserdataFactory.userData(user)
         .then((data) => {
