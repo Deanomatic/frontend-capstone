@@ -34,6 +34,7 @@ let runBuck = () => {
     //locations.push ({name: "my spot", latlng: new google.maps.LatLng(36.15429, -86.76421)});
 
     // Try HTML5 geolocation.
+    // if (navigator.geolocation && icon != undefined) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
