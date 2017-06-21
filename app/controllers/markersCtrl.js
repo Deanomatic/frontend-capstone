@@ -1,9 +1,10 @@
 "use strict";
 
-app.controller("markersCtrl", function($scope, $window, UserdataFactory, AuthFactory){
+app.controller("markersCtrl", function($scope, $window, UserdataFactory, AuthFactory, IconsFactory){
 	let user = AuthFactory.getUser();
 	// Runmap is changing the view to map partial. 
-	$scope.runMap = ()=> {
+	$scope.runMap = (icon)=> {
+		IconsFactory.setsavedinfo(icon)
 		//This needs scope to give it access to the partial.
 		$window.location.href = "#!/map";
 	};
