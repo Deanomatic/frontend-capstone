@@ -2,10 +2,16 @@
  //I need a a marker function that will save the data as the specific icon, 
  //but will add the new icon that is specified. So the old icons are still 
  //saved the way they should be and the new one is not overwritten.
-app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory, AuthFactory) {
+app.controller("mapCtrl", function($window, $scope, $timeout, UserdataFactory, AuthFactory, IconsFactory) {
 let user = AuthFactory.getUser();
 var marker;
 var userData;
+var icon = IconsFactory.getsavedinfo();
+var saved_icon = {
+  "buck": "/images/pins/buck-pin.png",
+  "doe": "/images/pins/doe-pin.png"
+};
+console.log("saved icon", saved_icon, icon, saved_icon[icon]);
 let getUserLocations = () => {
 UserdataFactory.userData(user)
         .then((data) => {
@@ -33,7 +39,8 @@ let runBuck = () => {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
-          uid: user
+          uid: user,
+          icon: icon
         };
         var marker =  new google.maps.Marker ({
             position: new google.maps.LatLng(pos),
@@ -50,7 +57,7 @@ let runBuck = () => {
           marker = new google.maps.Marker ({
             position: new google.maps.LatLng(coordinates),
             map: map,
-            icon: "/images/pins/buck-pin.png",
+            icon: saved_icon[userData[i].icon],
             title: "Buck here"
           });
          //console.log("marker", marker);
@@ -88,6 +95,8 @@ let runBuck = () => {
   }
   
 }; 
+
+runBuck();
 
 
 
