@@ -8,8 +8,65 @@ var marker;
 var userData;
 var icon = IconsFactory.getsavedinfo();
 var saved_icon = {
-  "buck": "/images/pins/buck-pin.png",
-  "doe": "/images/pins/doe-pin.png"
+  "buck": {
+    'image': "/images/pins/buck-pin.png", 
+    'title': 'A buck was here'
+  },
+  "doe": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "turkey": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "droppings": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "food-source": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "predator": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "road-kill": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "shed": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "tracks": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "trail": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "buck-rub": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  },
+  "water-source": {
+    'image': "/images/pins/doe-pin.png", 
+    'title': 'A doe was here'
+  }
+  // "doe": "/images/pins/doe-pin.png",
+  // "turkey": "/images/pins/turkey-pin.png",
+  // "droppings": "/images/pins/poop-pin.png",
+  // "food-source": "/images/pins/acorn-pin.png",
+  // "predator": "/images/pins/predator.png",
+  // "road-kill": "/images/pins/road-kill-pin.png",
+  // "shed": "/images/pins/shed-pin.png",
+  // "tracks": "/images/pins/tracks-pin.png",
+  // "trail": "/images/pins/trail-pin.png",
+  // "buck-rub": "/images/pins/tree-pin.png",
+  // "water-source": "/images/pins/water-pin.png"
 };
 console.log("saved icon", saved_icon, icon, saved_icon[icon]);
 let getUserLocations = () => {
@@ -58,8 +115,8 @@ let runBuck = () => {
           marker = new google.maps.Marker ({
             position: new google.maps.LatLng(coordinates),
             map: map,
-            icon: saved_icon[userData[i].icon],
-            title: "Buck here"
+            icon: saved_icon[userData[i].icon]['image'],
+            title: saved_icon[userData[i].icon]['title']
           });
          //console.log("marker", marker);
         }
