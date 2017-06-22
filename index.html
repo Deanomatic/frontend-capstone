@@ -7,7 +7,8 @@
 		<link href='//fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link type="text/css" rel="stylesheet" href="/lib/node_modules/materialize-css/dist/css/materialize.css"  media="screen,projection"/>
+		<!-- <link type="text/css" rel="stylesheet" href="/lib/node_modules/materialize-css/dist/css/materialize.css"  media="screen,projection"/> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body ng-app="buckStop">
@@ -18,7 +19,7 @@
 		</div>
 
 		<div class="row">	
-			<div class="" ng-view></div>
+			<div ng-view></div>
 		</div>
 
 		<div ng-include="'partials/footer.html'"></div>
@@ -27,13 +28,18 @@
 		  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD232_92J0nEPle8GWa944EonY7KLQJY5g">
 		</script>
 		<!--js link for materialize-->
-		<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.js"></script>
-		<script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.min.js"></script>
-		<!-- Links to node modues -->
-		<script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
-		<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
-		<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+		<!-- <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script> -->
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<!-- <script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.js"></script> -->	
+		<!-- <script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+		<!-- Links to node modules -->
+		<!-- <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script> -->
+		<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+		<!-- <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<!-- <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script> -->
+		 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.js"></script> 
 		<!-- Links for factories, ctrls, and app -->
 		<script type="text/javascript" src="app/app.js"></script>
 		<!-- //////////////////////// -->
